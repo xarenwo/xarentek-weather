@@ -1,3 +1,4 @@
+
 var webpack = require('webpack');
 var path = require('path');
 
@@ -5,7 +6,20 @@ var BUILD_DIR = path.resolve(__dirname, 'public');
 var APP_DIR = path.resolve(__dirname, 'app');
 
 var config = {
-    entry: APP_DIR + '/app.jsx',
+    entry: [
+        'script!jquery/dist/jquery.min.js',
+        'script!foundation-sites/dist/js/foundation.min.js',
+        APP_DIR + '/app.jsx'
+    ],
+    externals:{
+        jquery: 'jQuery'
+    },
+    plugins:[
+        new webpack.ProvidePlugin({
+            '$': 'jquery',
+            'jQuery':'jquery'
+        })
+    ],
     output: {
         path: BUILD_DIR,
         filename: 'bundle.js'
