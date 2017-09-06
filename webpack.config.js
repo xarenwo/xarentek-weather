@@ -11,9 +11,15 @@ var config = {
         filename: 'bundle.js'
     },
     resolve: {
-        root: __dirname,
+        root: APP_DIR,
         alias: {
-            //aliases here
+            Main : "components/Main.jsx",
+            Nav : "components/Nav.jsx",
+            Weather : "components/Weather.jsx",
+            About : "components/About.jsx",
+            WeatherForm : "components/WeatherForm.jsx",
+            WeatherMessage : "components/WeatherMsg.jsx",
+            openWeatherMap : "api/openWeatherMap.jsx"
         },
         extensions: ['', '.js', '.jsx']
     },
